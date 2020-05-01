@@ -17,7 +17,9 @@
   "scripts": {
     "pretest": "mkdir -p node_modules/ && ln -fs $(pwd) node_modules/",
     "eslint-check": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
-    "test": "npm run eslint-check && bin/github-lint.js && mocha tests/"
+    "test": "npm run eslint-check && bin/github-lint.js && mocha tests/",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -51,7 +53,8 @@
     "inquirer": "^6.0.0",
     "prettier": ">=1.12.0",
     "read-pkg-up": "^6.0.0",
-    "svg-element-attributes": "^1.2.1"
+    "svg-element-attributes": "^1.2.1",
+    "snyk": "^1.316.1"
   },
   "peerDependencies": {
     "eslint": ">=4.19.0",
@@ -68,5 +71,6 @@
     "flow-bin": "^0.102.0",
     "graphql": "^14.0.2",
     "mocha": "^6.1.4"
-  }
+  },
+  "snyk": true
 }
